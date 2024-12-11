@@ -69,8 +69,17 @@ public class BST {
         {
             return true;
         }
-        // Checks down the tree both left and right
-        return searchHelp(val, node.getLeft()) || searchHelp(val, node.getRight());
+        // Follows the tree to find where the value should be
+        else if (val > node.getVal())
+        {
+            // If the value is larger than the root it will follow the right side
+            return searchHelp(val, node.getRight());
+        }
+        else
+        {
+            // If the value is smaller than the root it will follow the left side
+           return searchHelp(val, node.getLeft());
+        }
     }
 
     /**
